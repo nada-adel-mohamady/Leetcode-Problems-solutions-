@@ -9,13 +9,10 @@ class Solution:
                 magazine_hashmap[char] += 1
         
         for char in ransomNote:
-            if char in magazine_hashmap:
-                if magazine_hashmap[char] == 0: 
-                    return False
+            if char not in magazine_hashmap or magazine_hashmap[char]==0:
+                return False
+            else:
                 #found char to construct ransomeNote
                 magazine_hashmap[char] -= 1
-            #if char not found so return false as we couldn't contruct the string
-            else:
-                return False
         
         return True
