@@ -11,29 +11,20 @@
  */
 class Solution {
 public:
-    int maxLen = 0;
-    int Sum = 0;
-    void deepestLen(TreeNode* root, int deepLen) {
-        if(root==nullptr) {
-            maxLen = max(deepLen, maxLen);
-            return;
+    int deepest = 0;
+    int maxSum = 0;
+
+    int deepestLeavesSum(TreeNode* root, int deep=0) {
+        if(root==nullptr)return 0;
+        if(root->left == nullptr && root->right == nullptr) {
+            if(deep == deepest) maxSum += root->val;
+            else if(deep>deepest) {
+                maxSum = root->val;
+                deepest = deep;
+            }
         }
-        deepestLen(root->right, deepLen+1);
-        deepestLen(root->left, deepLen+1);
-    }
-    void deepestSum(TreeNode* root, int deepLen) {
-        if(root==nullptr) {
-          return;
-        }
-        if(root->left==nullptr && root->right==nullptr && deepLen+1==maxLen) {
-            Sum+=root->val;
-        }
-        deepestSum(root->right, deepLen+1);
-        deepestSum(root->left, deepLen+1);
-    }
-    int deepestLeavesSum(TreeNode* root) {
-        deepestLen(root, 0);
-        deepestSum(root, 0);
-        return Sum;
+        deepestLeavesSum(root->left, deep+1);
+        deepestLeavesSum(root->right, deep+1);
+        return maxSum;
     }
 };
