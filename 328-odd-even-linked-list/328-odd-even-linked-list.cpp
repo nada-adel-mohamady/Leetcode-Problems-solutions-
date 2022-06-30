@@ -14,7 +14,7 @@ public:
         if(head == nullptr)return head;
         ListNode* odd = head;
         ListNode* even = odd->next;
-        ListNode* tmp = even;
+        ListNode* evenHead = even;
         while(odd && odd->next && even && even->next) {
             odd->next = odd->next->next;
             odd = odd->next;
@@ -23,7 +23,7 @@ public:
             even = even->next;
         }
         
-        odd->next = tmp;
+        odd->next = evenHead;
         return head;
         
     }
