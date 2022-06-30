@@ -16,7 +16,7 @@ public:
         ListNode* even = odd->next;
         ListNode* evenHead = even;
         while(odd && odd->next && even && even->next) {
-            odd->next = odd->next->next;
+            odd->next = even->next;
             odd = odd->next;
             
             even->next = odd->next;
