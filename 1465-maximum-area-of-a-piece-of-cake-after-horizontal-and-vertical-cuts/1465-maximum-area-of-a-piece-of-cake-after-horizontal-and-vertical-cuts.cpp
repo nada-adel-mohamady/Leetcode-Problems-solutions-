@@ -13,7 +13,6 @@ public:
             maxV = max(maxV, verticalCuts[i] - verticalCuts[i-1]);
         }
         
-        long res = (long)maxH * (long)maxV % (1000000000 + 7);
-        return res;
+        return (long)maxH * (long)maxV % (1000000000 + 7);
     }
 };
