@@ -22,7 +22,7 @@ public:
         ListNode* curr = head;
         ListNode* currHead = head;
         ListNode* prev = head;
-        ListNode* nxt = head;
+        ListNode* nxt;
         ListNode* prevTail = nullptr;
         bool first = true;
         int inx = 0;
