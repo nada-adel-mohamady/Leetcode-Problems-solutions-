@@ -12,7 +12,6 @@ class Solution {
 public:
    
     ListNode* reverseKGroup(ListNode* head, int k) {
-        int i;
         int nodesCount = 0;
         ListNode* node = head;
         while(node) {
@@ -25,6 +24,7 @@ public:
         ListNode* nxt;
         ListNode* prevTail = nullptr;
         bool first = true;
+        int i;
         int inx = 0;
         while(curr && inx + k <= nodesCount) {
             i = 0;
