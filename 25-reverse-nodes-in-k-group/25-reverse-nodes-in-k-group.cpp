@@ -31,7 +31,7 @@ public:
             if(!first)
                 tmpHead = curr;
             inx += k;
-            while(i < k) {
+            while(i < k && curr) {
                 nxt = curr->next;
                 curr->next = prev;
                 prev = curr;
