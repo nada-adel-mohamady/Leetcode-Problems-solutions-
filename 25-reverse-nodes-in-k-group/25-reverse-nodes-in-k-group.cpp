@@ -20,16 +20,16 @@ public:
             nodesCount++;
         }
         ListNode* curr = head;
-        ListNode* tmpHead = head;
+        ListNode* currHead = head;
         ListNode* prev = head;
         ListNode* nxt = head;
         ListNode* prevTail = nullptr;
         bool first = true;
         int inx = 0;
-        while(curr && inx+k <= nodesCount) {
+        while(curr && inx + k <= nodesCount) {
             i = 0;
             if(!first)
-                tmpHead = curr;
+                currHead = curr;
             inx += k;
             while(i < k && curr) {
                 nxt = curr->next;
@@ -44,11 +44,11 @@ public:
                 head = prev;
             }
            
-            tmpHead->next = curr;
+            currHead->next = curr;
             if(prevTail) {
                 prevTail->next = prev;
             }
-            prevTail = tmpHead;
+            prevTail = currHead;
         }
         return head;
     }
