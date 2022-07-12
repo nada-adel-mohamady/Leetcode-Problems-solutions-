@@ -6,39 +6,30 @@ public:
         char operation = '+';
         stack<int>stack;
         int currentNumber = 0;
+        int lastNumber = 0;
         char currentChar;
+        int result = 0;
         for (int i = 0; i < len; i++) {
             currentChar = s[i];
             if (isdigit(currentChar)) {
                 currentNumber = currentNumber * 10 + (currentChar - '0');
             }
             if (!isdigit(currentChar) && !iswspace(currentChar) || i == len - 1) {
-                if(operation == '+') {
-                    stack.push(currentNumber);
-                }
-                else if (operation == '-') {
-                    stack.push(-currentNumber);
+                if(operation == '+' || operation == '-') {
+                    result += lastNumber;
+                    lastNumber = (operation == '+') ? currentNumber : - currentNumber;
                 }
                 else if (operation == '*') {
-                    int stackTop = stack.top();
-                    stack.pop();
-                    stack.push(stackTop  * currentNumber);
+                    lastNumber = lastNumber * currentNumber;
                 } 
                 else if (operation == '/') {
-                    int stackTop = stack.top();
-                    stack.pop();
-                    stack.push(stackTop / currentNumber);
+                    lastNumber = lastNumber / currentNumber;
                 }
                 currentNumber = 0;
-                operation = currentChar;
-                
+                operation = currentChar;     
             }            
         }
-        int result = 0;
-        while (!stack.empty()) {
-            result += stack.top();
-            stack.pop();
-        }
+        result += lastNumber;
         return result;
     }
 };
