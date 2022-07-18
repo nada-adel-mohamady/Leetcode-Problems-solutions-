@@ -1,19 +1,16 @@
 class Solution {
 public:
     int countAsterisks(string s) {
-        bool left = false;
         int count = 0;
-        bool pair = true;
+        bool insideBar = true;
         for (int i = 0; i < s.size(); i++) {
-            if (s[i] == '|' && !left) {
-                left = true;
-                pair = false;
+            if (s[i] == '|' && !insideBar) {
+                insideBar = true;
             }
             else if (s[i] == '|') {
-                left = false;
-                pair = true;
+                insideBar = false;
             }
-            else if (s[i] == '*' && pair) {
+            else if (s[i] == '*' && insideBar) {
                 count++;
             }
         }
