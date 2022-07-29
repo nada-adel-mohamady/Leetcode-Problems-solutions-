@@ -10,7 +10,7 @@ public:
         }
         for (char c: s) {
             if (freq[c])
-                pq.push({freq[c], c});
+                pq.push(make_pair(freq[c], c));
             freq[c] = 0;
         }
         while (!pq.empty()) {
