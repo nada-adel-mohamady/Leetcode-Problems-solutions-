@@ -3,9 +3,9 @@ public:
     string frequencySort(string s) {
         unordered_map<char, int>freq;
         priority_queue<pair<int, char>> pq;
-        string str = "";
+        string res = "";
         pair<int, char>tmp;
-        for (auto c: s) {
+        for (char c: s) {
             freq[c]++;
         }
         for (auto c: s) {
@@ -16,8 +16,8 @@ public:
         while (!pq.empty()) {
             tmp = pq.top();
             pq.pop();
-            str+=string(tmp.first, tmp.second);
+            res+=string(tmp.first, tmp.second);
         }
-        return str;
+        return res;
     }
 };
