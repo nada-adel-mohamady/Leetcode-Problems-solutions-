@@ -21,7 +21,6 @@ public:
             for (int i = 0; i < tmp.first; i++) {
                 str+=c;
             }
-            mp[c] = 0;
         }
         return str;
     }
