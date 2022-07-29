@@ -8,7 +8,7 @@ public:
         for (char c: s) {
             freq[c]++;
         }
-        for (auto c: s) {
+        for (char c: s) {
             if (freq[c])
                 pq.push(make_pair(freq[c], c));
             freq[c] = 0;
