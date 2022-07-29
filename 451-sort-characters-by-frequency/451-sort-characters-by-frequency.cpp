@@ -4,7 +4,6 @@ public:
         unordered_map<char, int>mp;
         priority_queue<pair<int, char> > pq;
         string str = "";
-        char c;
         pair<int, char>tmp;
         for (auto c: s) {
             mp[c]++;
@@ -17,8 +16,7 @@ public:
         while (!pq.empty()) {
             tmp = pq.top();
             pq.pop();
-            c = tmp.second;
-            str+=string(tmp.first, c);
+            str+=string(tmp.first, tmp.second);
         }
         return str;
     }
