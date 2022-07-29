@@ -18,9 +18,7 @@ public:
             tmp = pq.top();
             pq.pop();
             c = tmp.second;
-            for (int i = 0; i < tmp.first; i++) {
-                str+=c;
-            }
+            str+=string(tmp.first, c);
         }
         return str;
     }
