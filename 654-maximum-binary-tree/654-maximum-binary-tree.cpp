@@ -27,12 +27,11 @@ public:
         int root_inx = maxIndex(nums);
         TreeNode* root = new TreeNode(nums[root_inx]);
         
-        vector<int>Vec = vector<int>(nums.begin(), nums.begin() + root_inx);
-        //vector<int>rightVec = vector<int>(nums.begin() + root_inx + 1, nums.end());
+        vector<int>leftVec = vector<int>(nums.begin(), nums.begin() + root_inx);
+        vector<int>rightVec = vector<int>(nums.begin() + root_inx + 1, nums.end());
      
-        root->left = constructMaximumBinaryTree(Vec);
-        Vec = vector<int>(nums.begin() + root_inx + 1, nums.end());
-        root->right = constructMaximumBinaryTree(Vec);
+        root->left = constructMaximumBinaryTree(leftVec);
+        root->right = constructMaximumBinaryTree(rightVec);
         return root;
     }
 };
