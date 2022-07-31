@@ -29,10 +29,9 @@ public:
         
         vector<int>leftVec = vector<int>(nums.begin(), nums.begin() + root_inx);
         vector<int>rightVec = vector<int>(nums.begin() + root_inx + 1, nums.end());
-        
-        if(root)
-            root->left = constructMaximumBinaryTree(leftVec);
-            root->right = constructMaximumBinaryTree(rightVec);
+     
+        root->left = constructMaximumBinaryTree(leftVec);
+        root->right = constructMaximumBinaryTree(rightVec);
         return root;
     }
 };
