@@ -4,9 +4,7 @@ public:
         if(s.size() != goal.size())return false;
         int i = 0;
         int j = 0;
-        int first_match = s[0];
         int last_match = -1;
-        bool start_matching = false;
         while (i < s.size()) {
             while (s[0] != goal[j]) {
                 j++;
